@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试</title>
+</head>
+<body>
+    <button onclick="test()">测试API</button>
+    <script>
+        async function test() {
+            const apiKey = prompt('请输入API密钥');
+            
+            try {
+                const response = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'qwen-turbo',
+                        messages: [
+                            { role: 'user', content: '你好' }
+                        ]
+                    })
+                });
+                
+                const data = await response.json();
+                alert('成功：' + data.choices[0].message.content);
+            } catch (error) {
+                alert('失败：' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

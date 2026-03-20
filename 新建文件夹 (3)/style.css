@@ -1,0 +1,734 @@
+/* style.css - 全局样式文件 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #0b0c14;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* 头部样式 */
+.header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #9d7bf5, #6ec8e0, #ff9f4b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    color: #6b7280;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 卡片样式 */
+.card {
+    background: rgba(20, 24, 39, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    padding: 32px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* API提示 */
+.api-note {
+    background: rgba(157, 123, 245, 0.1);
+    border: 1px solid rgba(157, 123, 245, 0.2);
+    border-radius: 60px;
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    color: #9d7bf5;
+    font-size: 13px;
+    display: inline-block;
+}
+
+/* 选择器容器 */
+.picker-container {
+    margin-bottom: 24px;
+}
+
+.picker-label {
+    color: #9ca3af;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* iOS风格选择器 */
+.ios-picker {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 16px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.ios-picker:focus {
+    outline: none;
+    border-color: #9d7bf5;
+}
+
+.ios-picker option {
+    background: #1a1f35;
+    color: white;
+}
+
+/* 日期时间网格 */
+.datetime-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    padding: 16px;
+}
+
+.datetime-item {
+    text-align: center;
+}
+
+.datetime-item select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 14px 4px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.datetime-item select option {
+    background: #1a1f35;
+    color: white;
+}
+
+.datetime-item label {
+    display: block;
+    color: #6b7280;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+/* 地址网格 */
+.address-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.address-item select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 16px 12px;
+    color: white;
+    font-size: 15px;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.address-item select option {
+    background: #1a1f35;
+    color: white;
+}
+
+.address-item select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 生成按钮 */
+.generate-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #9d7bf5, #6ec8e0);
+    border: none;
+    border-radius: 60px;
+    padding: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 30px -10px rgba(157, 123, 245, 0.4);
+}
+
+/* 底部 */
+.footer {
+    margin-top: 24px;
+    text-align: center;
+    color: #4b5563;
+    font-size: 12px;
+}
+
+/* 响应式布局 */
+@media (max-width: 600px) {
+    .datetime-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .datetime-item:nth-child(4), 
+    .datetime-item:nth-child(5) {
+        grid-column: span 1;
+    }
+    .address-grid {
+        grid-template-columns: 1fr;
+    }
+    .header h1 {
+        font-size: 36px;
+    }
+}
+
+/* ========== result.html 专用样式 ========== */
+
+/* 结果页顶部导航 */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #9d7bf5, #6ec8e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.back-link {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.back-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+/* 八字元数据 */
+.bazi-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.bazi-meta span {
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+/* 标题区域 */
+.title-section {
+    margin-bottom: 50px;
+}
+
+.title-main {
+    font-size: 80px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    font-family: 'Times New Roman', serif;
+}
+
+.title-epigraph {
+    font-size: 20px;
+    color: #9ca3af;
+    font-style: italic;
+    border-left: 3px solid #9d7bf5;
+    padding-left: 24px;
+    max-width: 600px;
+    font-family: 'Georgia', serif;
+}
+
+/* 两栏布局 */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.left-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 30px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.right-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 30px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* 关键词 */
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.keyword-tag {
+    padding: 6px 16px;
+    background: rgba(157, 123, 245, 0.1);
+    border: 1px solid rgba(157, 123, 245, 0.2);
+    border-radius: 40px;
+    color: #9d7bf5;
+    font-size: 13px;
+}
+
+.keywords-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0 20px 0;
+    padding: 10px 0;
+}
+
+.keyword-tag {
+    padding: 8px 24px;
+    background: linear-gradient(135deg, rgba(157, 123, 245, 0.15), rgba(110, 200, 224, 0.15));
+    border: 1px solid rgba(157, 123, 245, 0.3);
+    border-radius: 40px;
+    color: #9d7bf5;
+    font-size: 16px;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    white-space: nowrap; /* 确保每个词不换行 */
+}
+
+/* 小传 */
+.sketch-title {
+    color: #6b7280;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.sketch-content {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e5e7eb;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+/* 正文 */
+.desc-content p {
+    text-indent: 2em;
+}
+
+.desc-title {
+    color: #6b7280;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.desc-content {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #f3f4f6;
+    font-family: 'Georgia', serif;
+}
+
+.desc-content p {
+    margin: 1.2em 0;
+}
+
+/* 书摘 */
+.excerpt-block {
+    margin: 40px 0 50px 0;
+    padding: 40px;
+    background: rgba(157, 123, 245, 0.05);
+    border-radius: 40px;
+    border: 1px solid rgba(157, 123, 245, 0.1);
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.6;
+    font-style: italic;
+    color: #f3f4f6;
+    font-family: 'Georgia', serif;
+}
+
+/* 分析网格 */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.note-card, .analysis-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 24px;
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.card-label {
+    color: #9d7bf5;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.note-content, .analysis-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #d1d5db;
+    font-family: 'Georgia', serif;
+}
+
+/* 加载动画 */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    color: #9ca3af;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(157, 123, 245, 0.1);
+    border-top-color: #9d7bf5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 响应式调整 */
+@media (max-width: 700px) {
+    .two-column, .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+    .title-main {
+        font-size: 50px;
+    }
+}
+
+/* 在你的原有style.css末尾加上这些样式 */
+.keywords-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0 30px 0;
+    padding: 10px 0;
+}
+
+.keyword-tag {
+    padding: 8px 24px;
+    background: linear-gradient(135deg, rgba(157, 123, 245, 0.15), rgba(110, 200, 224, 0.15));
+    border: 1px solid rgba(157, 123, 245, 0.3);
+    border-radius: 40px;
+    color: #9d7bf5;
+    font-size: 16px;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+.excerpt-block {
+    margin: 30px 0 20px 0;
+    padding: 30px;
+    background: rgba(157, 123, 245, 0.05);
+    border-radius: 30px;
+    border: 1px solid rgba(157, 123, 245, 0.1);
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.6;
+    font-style: italic;
+    color: #f3f4f6;
+    font-family: 'Georgia', serif;
+
+
+}
+/* 步骤指示器 */
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+.step.active {
+    color: #9d7bf5;
+}
+
+.step.completed {
+    color: #10b981;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.step.active .step-number {
+    background: #9d7bf5;
+    color: white;
+}
+
+.step.completed .step-number {
+    background: #10b981;
+    color: white;
+}
+
+.step-arrow {
+    color: #4b5563;
+    font-size: 20px;
+}
+
+/* 八字显示区域 */
+.bazi-display {
+    background: rgba(157,123,245,0.1);
+    border: 1px solid rgba(157,123,245,0.3);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 2;
+    color: #e5e7eb;
+}
+
+.bazi-edit {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 14px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* 按钮组 */
+.btn-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+/* 其他原有样式保持不变 */
+
+/* ==================== 两步确认流程样式 ==================== */
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+.step.active {
+    color: #9d7bf5;
+}
+
+.step.completed {
+    color: #10b981;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.step.active .step-number {
+    background: #9d7bf5;
+    color: white;
+}
+
+.step.completed .step-number {
+    background: #10b981;
+    color: white;
+}
+
+.step-arrow {
+    color: #4b5563;
+    font-size: 20px;
+}
+
+.bazi-display {
+    background: rgba(157,123,245,0.1);
+    border: 1px solid rgba(157,123,245,0.3);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 2;
+    color: #e5e7eb;
+    font-size: 18px;
+}
+
+.bazi-edit {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 14px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.btn-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.section-title {
+    color: #e5e7eb;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* 确保所有下拉框文字可见 */
+select, select option {
+    color: white !important;
+    background-color: #1e1e2e !important;
+}
+
+select:disabled {
+    opacity: 0.6;
+    color: #9ca3af !important;
+}
+
+/* 输入框样式 */
+input, select {
+    background: #1e1e2e !important;
+    border: 1px solid #3a3a4e;
+    color: white !important;
+}
+
+input::placeholder {
+    color: #6b7280;
+}
